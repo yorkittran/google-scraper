@@ -1,0 +1,19 @@
+- content_for :title, 'Sign up'
+
+p.fs-5.mb-3 Get started with your account
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .form-floating.mb-3
+    = f.email_field :email, class: 'form-control', placeholder: 'name@example.com'
+    = f.label :email
+  .form-floating.mb-3
+    = f.password_field :password, class: 'form-control', placeholder: 'Password'
+    = f.label :password
+  .form-floating.mb-5
+    = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password'
+    = f.label :password_confirmation
+
+  = f.submit 'Sign up', class: 'btn btn-success btn-lg px-5 mb-3'
+
+  p.mb-0
+    | Already have account?
+    = link_to 'Login', new_session_path(resource_name), class: 'ms-2 text-decoration-none'
