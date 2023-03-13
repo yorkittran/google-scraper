@@ -1,0 +1,123 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - "vendor/bundle/**/*"
+    - "vendor/bin/**/*"
+    - ",/**/*"
+    - ".git/**/*"
+    - "bin/*"
+    - "db/schema.rb"
+    - "db/seeds/**/*"
+    - "db/migrate/*.rb"
+    - "log/**/*"
+    - "node_modules/**/*"
+    - "public/**/*"
+    - "tmp/**/*"
+    - "config/initializers/*"
+    - "Guardfile"
+
+#
+# Metrics
+#
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/ClassLength:
+  Max: 160
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+#
+# Layout
+#
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: true
+  IndentationWidth: 2
+
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+# for the following case.
+#   validates :project, presence: true
+#   validates :title  , presence: true
+#   validates :status , presence: true
+Layout/SpaceBeforeComma:
+  Enabled: false
+
+# for the following case.
+#   expect(json['title']).to    eq 'implement hoge'
+#   expect(json['status']).to   eq 'todo'
+#   expect(json['priority']).to eq 1
+#   expect(json['point']).to    eq 1
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+# for the following case.
+#   db       = ENV['db']       || 'apollo'
+#   user     = ENV['user']     || 'postgres'
+#   password = ENV['password'] || ''
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+#
+# Lint
+#
+Lint/MissingSuper:
+  Enabled: false
+
+#
+# Style
+#
+Style/Documentation:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/EndOfLine:
+  EnforcedStyle: lf
