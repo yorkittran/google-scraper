@@ -3,6 +3,7 @@
 # Table name: crawl_results
 #
 #  id            :bigint           not null, primary key
+#  keyword       :string           not null
 #  search_time   :float            default(0.0), not null
 #  source        :text
 #  total_ads     :integer          default(0), not null
