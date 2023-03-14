@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'scraper#index'
+
+  get '/scraper', to: 'scraper#index', as: 'user_root'
 end
