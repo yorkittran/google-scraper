@@ -33,3 +33,19 @@
   right: 0;
   width: 25vw;
 }
+
+.upload-box {
+  height: 160px;
+  border-style: dashed !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-text {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
