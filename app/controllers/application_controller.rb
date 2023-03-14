@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   layout :layout
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+private
 
   def layout
     devise_controller? ? 'devise' : 'application'

@@ -1,3 +1,5 @@
+require 'csv'
+
 module Scraper
   class SearchService < ApplicationService
     def initialize(csv_file)
@@ -5,7 +7,7 @@ module Scraper
     end
 
     def call
-      puts 'oke'
+      Rails.logger.debug 'oke'
     end
 
   private
