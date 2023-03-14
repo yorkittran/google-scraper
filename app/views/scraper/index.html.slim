@@ -9,11 +9,11 @@
           p This application will help you to extract large amounts of data from the Google search results page
           p At first, please upload a CSV file that content less than 100 keywords into the below box
 
-          .card.mt-5.border-success.border.border-4.rounded-3
+          .card.mt-5.border-info.border.border-4.rounded-3
             .card-body.p-0.text-center
-              .upload-box.border-success.border.border-4.rounded-1.m-1
+              .upload-box.border-info.border.border-4.rounded-1.m-1
                 = form_tag search_scraper_path, class: '', multipart: true do
-                  label.upload-text.text-success.d-flex.flex-column[for='file']
+                  label.upload-text.text-info.d-flex.flex-column[for='file']
                     i.fa-solid.fa-upload.m-1.fs-1
                     .fs-6 Click here to browse your file
                   = file_field_tag :file, hidden: true, accept: 'text/csv', onchange: 'this.form.submit()'
