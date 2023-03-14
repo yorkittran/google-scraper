@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.google-background {
+  background-image: image-url("background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-image {
+  flex-basis: 40%;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.scraper-text {
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+#flash {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 25vw;
+}

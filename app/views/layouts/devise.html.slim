@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title = content_for?(:title) ? "Google Scraper - #{yield(:title)}" : 'Google Scraper'
+    meta[name='viewport' content='width=device-width,initial-scale=1']
+    = favicon_link_tag asset_path('logo.png')
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_importmap_tags
+  body.google-background
+    section.vh-100
+      .container.py-5.h-100
+        .row.d-flex.justify-content-center.align-items-center.h-100
+          .col-12.col-md-8.col-lg-6.col-xl-5
+            .card[style='border-radius: 1rem;']
+              .card-body.p-5.text-center
+                .mb-md-5.mt-md-4
+                  .logo-container.mb-5
+                    .google-image
+                      = image_tag('google.png')
+                    .scraper-text.text-muted
+                      h1 Scraper
+                  = yield
+    #flash
+      = render partial: 'layouts/flash'
