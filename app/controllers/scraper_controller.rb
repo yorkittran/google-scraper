@@ -4,7 +4,7 @@ class ScraperController < ApplicationController
   def index; end
 
   def search
-    Scraper::SearchService.call(search_params[:file])
+    Scraper::SearchService.call(search_params[:file], current_user.id)
 
     redirect_to root_path, notice: 'Successfully upload file, please wait a little bit to get result in History'
   end
