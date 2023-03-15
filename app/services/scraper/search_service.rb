@@ -1,5 +1,3 @@
-require 'csv'
-
 module Scraper
   class SearchService < ApplicationService
     GOOGLE_SEARCH_URL = 'https://www.google.com.vn/search?q='.freeze

@@ -8,8 +8,8 @@ html
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  body.google-background
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
       .container-fluid
         .logo-container.mt-2.mb-1
           .google-image
@@ -28,6 +28,9 @@ html
               ul.dropdown-menu[aria-labelledby='navbarDropdownMenuLink']
                 li
                   = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', data: { 'turbo-method': :delete }
-    = yield
+    section.vh-100
+      .container.py-5.h-100
+        .row.d-flex.justify-content-center.align-items-center.h-100
+          = yield
     #flash
       = render partial: 'layouts/flash'
