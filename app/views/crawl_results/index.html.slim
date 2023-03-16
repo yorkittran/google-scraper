@@ -5,22 +5,7 @@
     .card-body.p-5.text-center
       h1.mb-5 History
 
-      .table-fix-head
-        table.table
-          thead
-            tr
-              th.text-start #
-              th.text-start Keyword
-              th.text-end Results
-              th.text-end Search time
-              th.text-end Ads
-              th.text-end.pe-4 Links
-          tbody
-            - @crawl_results.each.with_index(1) do |crawl_result, index|
-              tr
-                th.text-start = index
-                td.text-start = crawl_result.keyword
-                td.text-end = crawl_result.total_results.to_s(:delimited)
-                td.text-end = "#{crawl_result.search_time}s"
-                td.text-end = crawl_result.total_ads
-                td.text-end.pe-4 = crawl_result.total_links
+      = form_with(url: crawl_results_path, method: :get, class: 'text-left mb-4', data: { turbo_frame: 'crawl_results', turbo_action: 'advance', controller: 'search-form' }) do |f|
+        = f.text_field :query, class: 'form-control w-50', placeholder: 'keyword...', value: "#{params[:query]}", data: { action: 'input->search-form#search' }
+
+      = render 'crawl_results', crawl_results: @crawl_results

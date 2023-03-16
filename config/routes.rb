@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get '/scraper', to: 'scraper#index', as: 'user_root'
   post '/scraper/search', to: 'scraper#search', as: 'search_scraper'
+
   resources :crawl_results, only: %i[index show]
 end
