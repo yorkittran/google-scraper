@@ -3,10 +3,15 @@
 .col-12.col-md-8
   .card.rounded-4
     .card-body.p-5
-      .d-flex.justify-content-between.mb-4[data-controller='clipboard']
+      = link_to crawl_results_path, class: 'btn align-self-center text-muted mb-2 p-0'
+        i.fa-solid.fa-arrow-left.me-2
+        | Back to History
+      .d-flex.justify-content-between.align-items-center.mb-4[data-controller='clipboard']
         h3 = @crawl_result.keyword
         = hidden_field_tag :source, @crawl_result.source, data: { 'clipboard-target': 'source' }, readonly: true
-        button.btn.btn-primary.my-2[data-action='clipboard#copy'] Copy Source HTML
+        button.btn.btn-outline-success.my-2[data-action='clipboard#copy' data-clipboard-target='button']
+          | Copy Source HTML
+          i.fa-solid.fa-clipboard.ms-2
       .row.mb-2
         label.col-lg-4.fw-bold.text-muted Total Results
         .col-lg-8
