@@ -1,5 +1,6 @@
 class CrawlResultsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_crawl_result, only: :show
 
   def index
     if params[:query]
@@ -13,5 +14,13 @@ class CrawlResultsController < ApplicationController
     else
       render :index
     end
+  end
+
+  def show; end
+
+private
+
+  def set_crawl_result
+    @crawl_result = CrawlResult.find(params[:id])
   end
 end

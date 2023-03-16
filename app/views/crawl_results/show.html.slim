@@ -1,0 +1,25 @@
+- content_for :title, @crawl_result.keyword
+
+.col-12.col-md-8
+  .card.rounded-4
+    .card-body.p-5
+      .d-flex.justify-content-between.mb-4[data-controller='clipboard']
+        h3 = @crawl_result.keyword
+        = hidden_field_tag :source, @crawl_result.source, data: { 'clipboard-target': 'source' }, readonly: true
+        button.btn.btn-primary.my-2[data-action='clipboard#copy'] Copy Source HTML
+      .row.mb-2
+        label.col-lg-4.fw-bold.text-muted Total Results
+        .col-lg-8
+          span.text-dark = @crawl_result.total_results.to_fs(:delimited)
+      .row.mb-2
+        label.col-lg-4.fw-bold.text-muted Search Time
+        .col-lg-8
+          span.text-dark = "#{@crawl_result.search_time}s"
+      .row.mb-2
+        label.col-lg-4.fw-bold.text-muted Total AdWords
+        .col-lg-8
+          span.text-dark = @crawl_result.total_ads
+      .row.mb-2
+        label.col-lg-4.fw-bold.text-muted Total Links
+        .col-lg-8
+          span.text-dark = @crawl_result.total_links
