@@ -15,11 +15,7 @@ module Scraper
       total_proxies = Settings.proxy.proxies.count
       CSV.foreach(csv_file).with_index do |keyword, index|
         browser = Watir::Browser.new(:edge, headless: true, proxy: proxy(index % total_proxies))
-        puts "#{index} - #{Settings.proxy.proxies[index % total_proxies]}"
-        puts "#{GOOGLE_SEARCH_URL}#{keyword.first}"
-
         browser.goto("#{GOOGLE_SEARCH_URL}#{keyword.first}")
-        stats = browser.element(id: 'result-stats').text.split
         crawl_results << crawl_data(keyword.first, browser.html)
         browser.quit
       end
@@ -35,19 +31,19 @@ module Scraper
       doc = Nokogiri::HTML.parse(html)
       {
         user_id: current_user_id,
-        keyword: keyword,
+        keyword:,
         total_results: doc.xpath("//div[@id='result-stats']/text()").text.delete('^0-9').to_i,
         search_time: doc.xpath("//div[@id='result-stats']/nobr/text()").text.delete('^0-9.').to_f,
         total_links: doc.xpath('//a/@href').count,
         total_ads: doc.xpath("//div[@aria-label='Ads']/div").count,
-        source: html,
+        source: html
       }
     end
 
     def proxy(index)
       {
         http: "#{Settings.proxy.username}:#{Settings.proxy.password}@#{Settings.proxy.proxies[index]}",
-        ssl: "#{Settings.proxy.username}:#{Settings.proxy.password}@#{Settings.proxy.proxies[index]}",
+        ssl: "#{Settings.proxy.username}:#{Settings.proxy.password}@#{Settings.proxy.proxies[index]}"
       }
     end
   end
