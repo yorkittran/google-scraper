@@ -4,6 +4,7 @@ inherit_from:
 require: rubocop-rails
 
 AllCops:
+  NewCops: enable
   Exclude:
     - "vendor/bundle/**/*"
     - "vendor/bin/**/*"
@@ -25,9 +26,6 @@ AllCops:
 #
 Metrics/AbcSize:
   Max: 30
-
-Metrics/LineLength:
-  Max: 160
 
 Metrics/ClassLength:
   Max: 160
@@ -92,6 +90,12 @@ Layout/SpaceBeforeFirstArg:
 Layout/SpaceAroundOperators:
   Enabled: false
 
+Layout/LineLength:
+  Max: 160
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
 #
 # Lint
 #
@@ -119,5 +123,8 @@ Style/SymbolArray:
 Style/NumericPredicate:
   Enabled: false
 
-Style/EndOfLine:
-  EnforcedStyle: lf
+#
+# Rails
+#
+Rails/I18nLocaleTexts:
+  Enabled: false

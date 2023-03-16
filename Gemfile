@@ -53,6 +53,12 @@ gem 'jwt', '~> 1.5', '>= 1.5.4'
 gem 'pundit', '~> 2.2'
 
 #
+# Crawl
+#
+gem 'nokogiri', '~> 1.14', '>= 1.14.2'
+gem 'watir', '~> 7.2', '>= 7.2.2'
+
+#
 # Others
 #
 gem 'config', '~> 4.0'

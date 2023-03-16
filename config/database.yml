@@ -8,7 +8,7 @@ default: &default
 development:
   <<: *default
   database: google_scraper_development
-  host: localhost
+  host: <%= Settings.database.host %>
   port: 5432
   username: <%= Settings.database.username %>
   password: <%= Settings.database.password %>
