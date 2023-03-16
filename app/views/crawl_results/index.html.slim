@@ -1,0 +1,26 @@
+- content_for :title, 'Scraper'
+
+.col-12.col-md-8
+  .card.rounded-4
+    .card-body.p-5.text-center
+      h1.mb-5 History
+
+      .table-fix-head
+        table.table
+          thead
+            tr
+              th.text-start #
+              th.text-start Keyword
+              th.text-end Results
+              th.text-end Search time
+              th.text-end Ads
+              th.text-end.pe-4 Links
+          tbody
+            - @crawl_results.each.with_index(1) do |crawl_result, index|
+              tr
+                th.text-start = index
+                td.text-start = crawl_result.keyword
+                td.text-end = crawl_result.total_results.to_s(:delimited)
+                td.text-end = "#{crawl_result.search_time}s"
+                td.text-end = crawl_result.total_ads
+                td.text-end.pe-4 = crawl_result.total_links
