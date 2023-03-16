@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_172219) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_145356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "crawl_results", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "total_results", default: 0, null: false
+    t.bigint "total_results", default: 0, null: false
     t.float "search_time", default: 0.0, null: false
     t.integer "total_ads", default: 0, null: false
     t.integer "total_links", default: 0, null: false

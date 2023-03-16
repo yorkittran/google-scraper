@@ -8,7 +8,7 @@
 #  source        :text
 #  total_ads     :integer          default(0), not null
 #  total_links   :integer          default(0), not null
-#  total_results :integer          default(0), not null
+#  total_results :bigint           default(0), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :bigint           not null
