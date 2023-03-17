@@ -74,3 +74,5 @@ group :development, :test do
   gem 'spring', '~> 4.0'
   gem 'web-console', '~> 4.2'
 end
+
+gem "dockerfile-rails", ">= 1.2", :group => :development
