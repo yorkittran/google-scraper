@@ -23,5 +23,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :crawl_result, dependent: :destroy
+  has_many :crawl_results, dependent: :destroy
 end

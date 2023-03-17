@@ -12,7 +12,6 @@ gem 'rails', '~> 7.0', '>= 7.0.2.4'
 # Database, ORM, Model, etc
 #
 gem 'activerecord-import', '~> 1.4.0'
-gem 'discard', '~> 1.2'
 gem 'pg', '~> 1.1'
 
 #
@@ -24,10 +23,7 @@ gem 'redis', '~> 4.0'
 #
 # Views
 #
-gem 'active_decorator', '~> 1.4'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
-gem 'kaminari', '~> 1.2', '>= 1.2.2'
-gem 'ransack', '~> 3.1'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'slim-rails', '~> 3.4'
 
@@ -50,7 +46,6 @@ gem 'bootsnap', '~> 1.11', '>= 1.11.1', require: false
 #
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'jwt', '~> 1.5', '>= 1.5.4'
-gem 'pundit', '~> 2.2'
 
 #
 # Crawl
@@ -62,7 +57,6 @@ gem 'watir', '~> 7.2', '>= 7.2.2'
 # Others
 #
 gem 'config', '~> 4.0'
-gem 'enum_help', '~> 0.0.17'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
 gem 'importmap-rails', '~> 1.0'
 gem 'rubocop-rails', '~> 2.13', '>= 2.13.2', require: false

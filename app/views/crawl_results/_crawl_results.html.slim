@@ -1,0 +1,14 @@
+= turbo_frame_tag 'crawl_results' do
+  p.mb-0.ps-2.text-start = "#{crawl_results.count} result(s)"
+
+  .table-fix-head
+    table.table
+      thead
+        tr
+          th.text-start Keyword
+          th.text-end Results
+          th.text-end Search time
+          th.text-end Ads
+          th.text-end.pe-4 Links
+        tbody
+          = render crawl_results

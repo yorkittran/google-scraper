@@ -1,0 +1,11 @@
+- content_for :title, 'History'
+
+.col-12.col-md-8
+  .card.rounded-4
+    .card-body.p-5.text-center
+      h1.mb-5 History
+
+      = form_with(url: crawl_results_path, method: :get, class: 'text-left mb-4', data: { turbo_frame: 'crawl_results', turbo_action: 'advance', controller: 'search-form' }) do |f|
+        = f.text_field :query, class: 'form-control w-50', placeholder: 'keyword...', value: "#{params[:query]}", data: { action: 'input->search-form#search' }
+
+      = render 'crawl_results', crawl_results: @crawl_results

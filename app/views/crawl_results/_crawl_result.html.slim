@@ -1,0 +1,6 @@
+tr[id="#{dom_id(crawl_result)}"]
+  td.text-start = link_to crawl_result.keyword, crawl_result_path(crawl_result), class: 'text-decoration-none', data: { turbo: false }
+  td.text-end = crawl_result.total_results.to_fs(:delimited)
+  td.text-end = "#{crawl_result.search_time}s"
+  td.text-end = crawl_result.total_ads
+  td.text-end.pe-4 = crawl_result.total_links
