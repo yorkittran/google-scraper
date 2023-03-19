@@ -1,3 +1,5 @@
+require 'csv'
+
 module Scraper
   class CreateCrawlJobService < ApplicationService
     BATCH_SIZE = 20
