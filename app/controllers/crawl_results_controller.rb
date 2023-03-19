@@ -3,11 +3,11 @@ class CrawlResultsController < ApplicationController
   before_action :set_crawl_result, only: :show
 
   def index
-    if params[:query]
-      @crawl_results = current_user.crawl_results.where("keyword LIKE ?", "%#{params[:query].strip}%")
-    else
-      @crawl_results = current_user.crawl_results
-    end
+    @crawl_results = if params[:query]
+                       current_user.crawl_results.where("keyword LIKE ?", "%#{params[:query].strip}%")
+                     else
+                       current_user.crawl_results
+                     end
 
     if turbo_frame_request?
       render partial: 'crawl_results', locals: { crawl_results: @crawl_results }
