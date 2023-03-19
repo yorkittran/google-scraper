@@ -18,7 +18,7 @@ gem 'pg', '~> 1.1'
 # Web servers
 #
 gem 'puma', '~> 5.6', '>= 5.6.4'
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 3.2', '>= 3.2.1'
 
 #
 # Views
@@ -52,6 +52,12 @@ gem 'jwt', '~> 1.5', '>= 1.5.4'
 #
 gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 gem 'watir', '~> 7.2', '>= 7.2.2'
+
+#
+# Background Job
+#
+gem 'sidekiq', '~> 4.1', '>= 4.1.2'
+gem 'sidekiq-batch', '~> 0.1.9'
 
 #
 # Others
