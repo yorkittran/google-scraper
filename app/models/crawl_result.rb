@@ -22,5 +22,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class CrawlResult < ApplicationRecord
+  CSV_LIMIT_LINES = 100
+
   belongs_to :user
 end
