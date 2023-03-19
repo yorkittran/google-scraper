@@ -16,14 +16,12 @@ module Scraper
       keywords.each.with_index do |keyword, index|
         browser = Watir::Browser.new(:chrome, headless: true, proxy: proxy(index % total_proxies))
         browser.goto("#{GOOGLE_SEARCH_URL}#{keyword}")
-        unless browser.element(id: 'result-stats').present?
+        unless browser.element(id: 'result-stats').present? # rubocop:disable Rails/Blank
           failed_keywords << keyword
           next
         end
-        puts "#{index} - #{keyword}"
         crawl_results << crawl_data(keyword, browser.html)
         browser.quit
-        failed_keywords << keyword
       end
 
       CrawlResult.import(IMPORT_CRAWL_RESULT_COLUMNS, crawl_results)
@@ -36,7 +34,7 @@ module Scraper
     def crawl_data(keyword, html)
       doc = Nokogiri::HTML.parse(html)
       {
-        user_id: user_id,
+        user_id:,
         keyword:,
         total_results: doc.xpath("//div[@id='result-stats']/text()").text.delete('^0-9').to_i,
         search_time: doc.xpath("//div[@id='result-stats']/nobr/text()").text.delete('^0-9.').to_f,

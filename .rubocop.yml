@@ -94,7 +94,7 @@ Layout/LineLength:
   Max: 160
 
 Layout/EndOfLine:
-  EnforcedStyle: lf
+  Enabled: false
 
 #
 # Lint
