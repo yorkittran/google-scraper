@@ -27,6 +27,7 @@ module Scraper
       end
 
       CrawlResult.import(IMPORT_CRAWL_RESULT_COLUMNS, crawl_results)
+      push_failed_keywords_to_cache
     end
 
   private
@@ -51,6 +52,11 @@ module Scraper
         http: "#{Settings.proxy.username}:#{Settings.proxy.password}@#{Settings.proxy.proxies[index]}",
         ssl: "#{Settings.proxy.username}:#{Settings.proxy.password}@#{Settings.proxy.proxies[index]}"
       }
+    end
+
+    def push_failed_keywords_to_cache
+      cached_failed_keywords = Rails.cache.read("#{batch_id}_FAILED_KEYWORDS") || []
+      Rails.cache.write("#{batch_id}_FAILED_KEYWORDS", cached_failed_keywords + failed_keywords)
     end
   end
 end

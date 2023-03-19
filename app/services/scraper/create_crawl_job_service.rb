@@ -18,6 +18,7 @@ module Scraper
       return @error = "Please upload fewer than #{CrawlResult::CSV_LIMIT_LINES} keywords!" if keywords.count > CrawlResult::CSV_LIMIT_LINES
 
       batch = Sidekiq::Batch.new
+      batch.on(:success, CrawlJobCallbackService)
       batch.jobs do
         keywords.each_slice(BATCH_SIZE) do |batch_keywords|
           CrawlGoogleSearchWorker.perform_async(batch_keywords, user_id, batch.bid)
