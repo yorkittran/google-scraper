@@ -18,15 +18,12 @@ module Scraper
         browser.goto("#{GOOGLE_SEARCH_URL}#{keyword}")
         unless browser.element(id: 'result-stats').present? # rubocop:disable Rails/Blank
           failed_keywords << keyword
-          Rails.logger.debug("FAILED (blocked) - #{keyword}")
           next
         end
-        Rails.logger.debug("SUCCESS - #{keyword}")
         crawl_results << crawl_data(keyword, browser.html)
         browser.quit
       rescue Net::ReadTimeout
         failed_keywords << keyword
-        Rails.logger.debug("FAILED (timeout) - #{keyword}")
       end
 
       CrawlResult.import(IMPORT_CRAWL_RESULT_COLUMNS, crawl_results)
