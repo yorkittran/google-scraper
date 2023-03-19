@@ -2,7 +2,7 @@ require 'csv'
 
 module Scraper
   class CreateCrawlJobService < ApplicationService
-    BATCH_SIZE = 10
+    BATCH_SIZE = 20
 
     attr_reader :error
 
