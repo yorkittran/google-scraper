@@ -1,0 +1,30 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+  .container-fluid
+    .logo-container.mt-2.mb-1
+      .google-image
+        = image_tag('google.png', style: 'width: 240px')
+      .scraper-text.text-muted
+        h1 Scraper
+    ul.navbar-nav
+      li.nav-item
+        = link_to 'Scraper', root_path, class: 'nav-link'
+      li.nav-item
+        = link_to 'History', crawl_results_path, class: 'nav-link'
+    .d-flex.me-2
+      ul.navbar-nav.align-items-center
+        li.nav-item.text-secondary.px-2
+          = "Hello, #{current_user.username}"
+        li.nav-item.dropdown.px-2
+          a#navbarDropdownMenuNotification.nav-link[href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false']
+            i#bell.fa-solid.fa-bell.fs-5
+            i#bullhorn.fa-solid.fa-bullhorn.fs-5.d-none
+          ul.dropdown-menu.dropdown-menu-end[id='notifications' aria-labelledby='navbarDropdownMenuNotification']
+            - current_user.notifications.for_display.each.with_index do |notification, index|
+              - if index == 0
+                li.p-2 = notification.content
+              - else
+                .dropdown-divider
+                li.p-2 = notification.content
+        li.nav-item.px-2
+          = link_to destroy_user_session_path, class: 'text-secondary', data: { 'turbo-method': :delete } do
+            i.fa-solid.fa-right-from-bracket.fs-5
