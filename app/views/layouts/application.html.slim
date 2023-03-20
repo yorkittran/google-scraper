@@ -9,25 +9,7 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body.google-background
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
-      .container-fluid
-        .logo-container.mt-2.mb-1
-          .google-image
-            = image_tag('google.png', style: 'width: 240px')
-          .scraper-text.text-muted
-            h1 Scraper
-        .d-flex.me-2
-          ul.navbar-nav
-            li.nav-item
-              = link_to 'Scraper', root_path, class: 'nav-link'
-            li.nav-item
-              = link_to 'History', crawl_results_path, class: 'nav-link'
-            li.nav-item.dropdown
-              a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false']
-                = "Hello, #{current_user.username}"
-              ul.dropdown-menu[aria-labelledby='navbarDropdownMenuLink']
-                li
-                  = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', data: { 'turbo-method': :delete }
+    = render partial: 'layouts/navbar'
     section.vh-100
       .container.py-5.h-100
         .row.d-flex.justify-content-center.align-items-center.h-100
