@@ -18,7 +18,11 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Notification < ApplicationRecord
+  NEWEST_LIMIT = 10
+
   belongs_to :user
+
+  scope :for_display, -> { order(:created_at).last(NEWEST_LIMIT) }
 
   module Status
     ALL = %i[unread read].freeze

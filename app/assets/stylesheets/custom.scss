@@ -54,9 +54,14 @@
   overflow: auto;
   height: 50vh;
 }
+
 .table-fix-head thead th {
   position: sticky;
   top: 0;
   z-index: 1;
   background: white;
+}
+
+#notifications {
+  width: 400px;
 }

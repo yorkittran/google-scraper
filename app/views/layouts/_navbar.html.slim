@@ -16,13 +16,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
           = "Hello, #{current_user.username}"
         li.nav-item.dropdown.px-2
           a#navbarDropdownMenuNotification.nav-link[href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false']
-            i.fa-solid.fa-bell.fs-5
-          ul.dropdown-menu.dropdown-menu-end[aria-labelledby='navbarDropdownMenuNotification']
-            li
-              = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', data: { 'turbo-method': :delete }
-            .dropdown-divider
-            li
-              = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', data: { 'turbo-method': :delete }
+            i#bell.fa-solid.fa-bell.fs-5
+            i#bullhorn.fa-solid.fa-bullhorn.fs-5.d-none
+          ul.dropdown-menu.dropdown-menu-end[id='notifications' aria-labelledby='navbarDropdownMenuNotification']
+            - current_user.notifications.for_display.each.with_index do |notification, index|
+              - if index == 0
+                li.p-2 = notification.content
+              - else
+                .dropdown-divider
+                li.p-2 = notification.content
         li.nav-item.px-2
           = link_to destroy_user_session_path, class: 'text-secondary', data: { 'turbo-method': :delete } do
             i.fa-solid.fa-right-from-bracket.fs-5
