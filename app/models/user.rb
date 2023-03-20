@@ -24,4 +24,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :crawl_results, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 end
