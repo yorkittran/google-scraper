@@ -17,7 +17,6 @@ class ScraperController < ApplicationController
 private
 
   def search_params
-    params.require(:file)
-    params.permit(:file)
+    params.require(:scraper).permit(:file)
   end
 end

@@ -11,7 +11,7 @@
         .card-body.p-0.text-center
           .upload-box.border-info.border.border-4.rounded-1.m-1
             = form_tag search_scraper_path, class: '', multipart: true do
-              label.upload-text.text-info.d-flex.flex-column[for='file']
+              label.upload-text.text-info.d-flex.flex-column[for='scraper_file']
                 i.fa-solid.fa-upload.m-1.fs-1
                 .fs-6 Click here to browse your file
-              = file_field_tag :file, hidden: true, accept: 'text/csv', onchange: 'this.form.submit()'
+              = file_field_tag "scraper[file]", hidden: true, accept: 'text/csv', onchange: 'this.form.submit()'
