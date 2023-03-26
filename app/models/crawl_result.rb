@@ -6,6 +6,7 @@
 #  keyword       :string           not null
 #  search_time   :float            default(0.0), not null
 #  source        :text
+#  status        :integer          default("pending"), not null
 #  total_ads     :integer          default(0), not null
 #  total_links   :integer          default(0), not null
 #  total_results :bigint           default(0), not null
@@ -25,4 +26,14 @@ class CrawlResult < ApplicationRecord
   CSV_LIMIT_LINES = 100
 
   belongs_to :user
+
+  module Status
+    ALL = %i[pending finished failed].freeze
+
+    pending = 'pending'.freeze
+    finished = 'finished'.freeze
+    failed = 'failed'.freeze
+  end
+
+  enum status: Status::ALL
 end

@@ -8,4 +8,4 @@
       = form_with(url: crawl_results_path, method: :get, class: 'text-left mb-4', data: { turbo_frame: 'crawl_results', turbo_action: 'advance', controller: 'search-form' }) do |f|
         = f.text_field :query, class: 'form-control w-50', placeholder: 'keyword...', value: "#{params[:query]}", data: { action: 'input->search-form#search' }
 
-      = render 'crawl_results', crawl_results: @crawl_results
+      = render 'crawl_results', crawl_results: @crawl_results.finished

@@ -11,7 +11,7 @@ consumer.subscriptions.create("NotificationChannel", {
 
   received(data) {
     this.addNotification(data);
-    this.changeBell();
+    this.addBadgeToBell();
   },
 
   addNotification(content) {
@@ -34,10 +34,10 @@ consumer.subscriptions.create("NotificationChannel", {
     }
   },
 
-  changeBell() {
-    let bell = document.getElementById("bell");
-    let bullhorn = document.getElementById("bullhorn");
-    bell.classList.add("d-none");
-    bullhorn.classList.remove("d-none");
+  addBadgeToBell() {
+    let container = document.getElementById("notification-icon-container");
+    const span = document.createElement("span");
+    span.id = "icon-badge";
+    if (!container.querySelector("span")) container.append(span);
   },
 });
