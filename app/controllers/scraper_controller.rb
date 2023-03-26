@@ -4,7 +4,7 @@ class ScraperController < ApplicationController
   def index; end
 
   def search
-    service = Scraper::CreateCrawlJobService.new(search_params[:file], current_user.id)
+    service = Scraper::CreateCrawlJobsService.new(search_params[:file], current_user.id)
     service.call
 
     if service.error

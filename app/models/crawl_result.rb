@@ -28,10 +28,10 @@ class CrawlResult < ApplicationRecord
   belongs_to :user
 
   module Status
-    ALL = %i[pending successful failed].freeze
+    ALL = %i[pending finished failed].freeze
 
     pending = 'pending'.freeze
-    successful = 'successful'.freeze
+    finished = 'finished'.freeze
     failed = 'failed'.freeze
   end
 
