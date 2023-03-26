@@ -1,6 +1,6 @@
 class CrawlResultsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_crawl_result, only: :show
+  before_action :set_crawl_result, only: %i[show source]
 
   def index
     @crawl_results = if params[:query]
@@ -17,6 +17,10 @@ class CrawlResultsController < ApplicationController
   end
 
   def show; end
+
+  def source
+    render html: @crawl_result.source.html_safe
+  end
 
 private
 
