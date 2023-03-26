@@ -57,8 +57,7 @@ gem 'watir', '~> 7.2', '>= 7.2.2'
 #
 # Background Job
 #
-gem 'sidekiq', '~> 4.1', '>= 4.1.2'
-gem 'sidekiq-batch', '~> 0.1.9'
+gem 'sidekiq', '~> 7.0', '>= 7.0.7'
 
 #
 # Others
