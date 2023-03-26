@@ -8,15 +8,26 @@
 - View scrapped stats of keywords with Hotwire implemented to have a better UX
 - Response notification to users when finish scrapping
 
+## Prerequisite
+
+- [Ruby 3.1.3 & RubyOnRails 7.0.4.2](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-22-04)
+- [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+- [Redis](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04)
+- [ChromeDriver](https://chromedriver.chromium.org/getting-started)
+
 ## Installation
 
-To clone and run this application, you'll need to setup
+Start your PostgreSQL and Redis servers
 
-- Ruby
-- Ruby on Rails
-- PostgreSQL Server
-- Redis Server
-- ChromeDriver
+```bash
+# Start PostgreSQL
+$ sudo systemctl start postgresql
+
+# Start Redis
+$ sudo systemctl start redis
+```
+
+Clone repository and install gems
 
 ```bash
 # Clone this repository
@@ -27,9 +38,23 @@ $ cd google-scraper
 
 # Install gems and dependencies
 $ bundle install
+```
 
+Config your database's user at `config/settings/development.yml`, then create the database
+
+```bash
+# Create database
+$ rails db:create db:migrate
+```
+
+Run application
+
+```bash
 # Run the app
 $ rails server
+
+# Run the sidekiq in another tab
+$ bundle exec sidekiq
 ```
 
 Also, you should prepare a CSV file that contains less than 100 keywords without header like this
