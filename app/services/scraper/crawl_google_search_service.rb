@@ -35,7 +35,6 @@ module Scraper
         status: :finished,
       )
       browser.quit
-      raise Net::ReadTimeout
     rescue Net::ReadTimeout
       crawl_result.update!(status: :failed)
     end

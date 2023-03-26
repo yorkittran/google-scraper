@@ -16,8 +16,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
           = "Hello, #{current_user.username}"
         li.nav-item.dropdown.px-2
           a#navbarDropdownMenuNotification.nav-link[href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false']
-            i#bell.fa-solid.fa-bell.fs-5
-            i#bullhorn.fa-solid.fa-bullhorn.fs-5.text-danger.d-none
+            #notification-icon-container[data-controller='notification']
+              i.fa-solid.fa-bell.fs-5[data-action="click->notification#clearBadge"]
           ul.dropdown-menu.dropdown-menu-end[id='notifications' aria-labelledby='navbarDropdownMenuNotification']
             - current_user.notifications.for_display.each.with_index do |notification, index|
               - if index == 0
